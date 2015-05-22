@@ -126,22 +126,21 @@ LOOV_params* alloc_init_LOOV_params(){
 LOOV_params* parse_arg(LOOV_params* param, int argc, char *argv[]){
     int argPos=0;
     char *progName=argv[0];
-    
     param->lang=sprintf_alloc("fra");
     if(strrchr(progName,'/')) progName= strrchr(progName,'/')+1;
     if (get_Arguments (argc, argv, &argPos, (char*)"-h", (char*) ""))    {usage_moi(stdout,argv[0]); exit(0);}
-    if (get_Arguments (argc, argv, NULL, (char*)"-ss",(char*)"%d",                              &param->startFrame))                       printf("starting at the %d frames\n",                param->startFrame);
-    if (get_Arguments (argc, argv, NULL, (char*)"-endpos",(char*)"%d",                          &param->nbFrame))                          printf("displaying the next %d frames\n",            param->nbFrame);
-    if (get_Arguments (argc, argv, NULL, (char*)"-aspect_ratio",(char*)"%f",                    &param->aspect_ratio))                     printf("aspect ratio %f\n",           			    param->aspect_ratio);
-    if ((param->videoName              = get_String_Arguments (argc, argv, (char*)"-v")) ){                                                printf("videoName = %s\n",param->videoName);}
-    if ((param->output_path            = get_String_Arguments (argc, argv, (char*)"-output"))){                                            printf("output_path = %s\n",param->output_path);}
-    if ((param->path_im_mask           = get_String_Arguments (argc, argv, (char*)"-path_im_mask"))){                                      printf("path_im_mask = %s\n",param->path_im_mask);}
-    if ((param->lang                   = get_String_Arguments (argc, argv, (char*)"-lang"))){                                              printf("lang = %s\n",param->lang);}
-    param->print_text   = get_Arguments (argc, argv, NULL,     (char*)"-print_text",(char*)"");
+    if (get_Arguments (argc, argv, NULL, (char*)"-ss",(char*)"%d",                              &param->startFrame))                       printf("starting at the %d frames\n",             param->startFrame);
+    if (get_Arguments (argc, argv, NULL, (char*)"-endpos",(char*)"%d",                          &param->nbFrame))                          printf("displaying the next %d frames\n",         param->nbFrame);
+    if (get_Arguments (argc, argv, NULL, (char*)"-aspect_ratio",(char*)"%f",                    &param->aspect_ratio))                     printf("aspect ratio %f\n",           			 param->aspect_ratio);
+    if ((param->videoName              = get_String_Arguments (argc, argv, (char*)"-v")) ){                                                printf("videoName = %s\n",                        param->videoName);}
+    if ((param->output_path            = get_String_Arguments (argc, argv, (char*)"-output"))){                                            printf("output_path = %s\n",                      param->output_path);}
+    if ((param->path_im_mask           = get_String_Arguments (argc, argv, (char*)"-path_im_mask"))){                                      printf("path_im_mask = %s\n",                     param->path_im_mask);}
+    if ((param->lang                   = get_String_Arguments (argc, argv, (char*)"-lang"))){                                              printf("lang = %s\n",                             param->lang);}
+    param->print_text                  = get_Arguments (argc, argv, NULL,  (char*)"-print_text",(char*)"");
     if (get_Arguments (argc, argv, NULL, (char*)"-threshold_sobel",(char*)"%d",                 &param->threshold_sobel))                  printf("threshold_sobel = %d\n",                  param->threshold_sobel);
     if (get_Arguments (argc, argv, NULL, (char*)"-it_connected_caractere",(char*)"%f",          &param->it_connected_caractere))           printf("it_connected_caractere = %f it\n",        param->it_connected_caractere);
-    if (get_Arguments (argc, argv, NULL, (char*)"-y_min_size_text",(char*)"%f",                 &param->y_min_size_text))                  printf("y_min_size_text = %f pixels\n",           param->y_min_size_text);
-    if (get_Arguments (argc, argv, NULL, (char*)"-x_min_size_text",(char*)"%f",                 &param->x_min_size_text))                  printf("x_min_size_text = %f pixels\n",           param->x_min_size_text);
+    if (get_Arguments (argc, argv, NULL, (char*)"-y_min_size_text",(char*)"%f",                 &param->y_min_size_text))                  printf("y_min_size_text = %f * image height\n",   param->y_min_size_text);
+    if (get_Arguments (argc, argv, NULL, (char*)"-x_min_size_text",(char*)"%f",                 &param->x_min_size_text))                  printf("x_min_size_text = %f * image width\n",    param->x_min_size_text);
     if (get_Arguments (argc, argv, NULL, (char*)"-ratio_width_height",(char*)"%f",              &param->ratio_width_height))               printf("ratio_width_height = %f\n",               param->ratio_width_height);
     if (get_Arguments (argc, argv, NULL, (char*)"-text_white",(char*)"%d",                      &param->text_white))                       printf("text_white = %d\n",                       param->text_white);
     if (get_Arguments (argc, argv, NULL, (char*)"-type_threshold",(char*)"%d",                  &param->type_threshold))                   printf("type_threshold = %d\n",                   param->type_threshold);
