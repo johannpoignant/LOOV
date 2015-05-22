@@ -40,8 +40,8 @@ int main(int argc, char *argv[]) {
 
     if (param->videoName==NULL) { fprintf(stderr,"enter video name after parameter -v\n"); exit(0); }
     CvCapture* capture = cvCaptureFromFile(param->videoName);    										// read video
-    if (!capture)        { printf("error on video %s\n",param->videoName); exit(1); }
-    cvSetCaptureProperty(capture, CV_CAP_PROP_POS_FRAMES, param->startFrame);  							// get video property
+    if (!capture)            { printf("error on video %s\n",param->videoName); exit(1); }
+    if (param->startFrame>0) {cvSetCaptureProperty(capture, CV_CAP_PROP_POS_FRAMES, param->startFrame);}// seek
     IplImage* frame_temp = cvQueryFrame( capture );   													// get the first frame    
 
 	/* computed parameters depending on the image size */
