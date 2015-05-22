@@ -174,11 +174,11 @@ IplImage* connected_caractere(IplImage* im, LOOV_params* param){                
 IplImage* delete_horizontal_bar(IplImage* im, LOOV_params* param){                                                                       //Delete horizontal bar of 1 px high
 	cvRectangle(im,cvPoint(0,0),cvPoint(im->width-1,im->height-1),cvScalar(0,0,0,0),2,4,0) ;                      //draw line around the image because the erode operation do not correctly do ???
 	IplConvKernel* element1 = cvCreateStructuringElementEx(1, 2, 0, 1, CV_SHAPE_RECT, NULL);                       //create a matrice for the operation dilatation and erosion
-	cvErode(im, im, element1, param->y_min_size_text) ;
+	cvErode(im, im, element1, param->y_min_size_text/4) ;
     cvReleaseStructuringElement(&element1); 
 
 	IplConvKernel* element2 = cvCreateStructuringElementEx(1, 2, 0, 0, CV_SHAPE_RECT, NULL); 
-	cvDilate(im, im, element2, param->y_min_size_text);
+	cvDilate(im, im, element2, param->y_min_size_text/4);
     cvReleaseStructuringElement(&element2); //release matrice
     return im;
 }
@@ -187,11 +187,11 @@ IplImage* delete_horizontal_bar(IplImage* im, LOOV_params* param){              
 IplImage* delete_vertical_bar(IplImage* im, LOOV_params* param){                                                                        //Delete vertical bar
     cvRectangle(im,cvPoint(0,0),cvPoint(im->width-1,im->height-1),cvScalar(0,0,0,0),2,4,0) ;                    //draw line around the image because the erode operation do not correctly do ???
     IplConvKernel* element1 = cvCreateStructuringElementEx(2, 1, 1, 0, CV_SHAPE_RECT, NULL);                        //create matrice for the operation dilatation and erosion
-    cvErode(im, im, element1, param->x_min_size_text);
+    cvErode(im, im, element1, param->x_min_size_text/4);
     cvReleaseStructuringElement(&element1); 
     
     IplConvKernel* element2 = cvCreateStructuringElementEx(2, 1, 0, 0, CV_SHAPE_RECT, NULL);
-    cvDilate(im, im, element2, param->x_min_size_text);
+    cvDilate(im, im, element2, param->x_min_size_text/4);
     cvReleaseStructuringElement(&element2);                                                                        //release matrice
     return im;
 }
