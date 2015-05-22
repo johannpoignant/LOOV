@@ -30,7 +30,7 @@ ICME, july 2012, Australia, Melbourne.
 sudo apt-get install cmake autoconf automake libtool
 
 ## Install opencv
-sudo apt-get install libopencv-dev libcv-dev libhighgui-dev
+sudo apt-get install libavcodec-extra-53 libopencv-dev libcv-dev libhighgui-dev
 
 ## Install leptonica 1.70 or earlier
 wget http://www.leptonica.org/source/leptonica-1.70.tar.gz
