@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 ###########################################################################
 # Copyright (C) <2014>  <Johann POIGNANT>
 #
@@ -17,7 +19,6 @@
 # along with LOOV.  If not, see <http://www.gnu.org/licenses/>.
 ###########################################################################
 
-# -*- coding: utf-8 -*-
 import glob
 import os
 import operator
