@@ -48,8 +48,8 @@ tar -xf "tesseract-3.00.tar.gz"
 cd "tesseract-3.00"
 ./configure
 make -j3
-make install
-cp -d */.libs/*.a /usr/local/lib/
+sudo make install
+sudo cp -d */.libs/*.a /usr/local/lib/
 cd ..
 
 ## Copy model language (lang.traineddata) in the folder /usr/local/share/tessdata from http://code.google.com/p/tesseract-ocr/downloads/list
